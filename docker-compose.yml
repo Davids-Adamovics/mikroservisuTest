@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  sparni-shop-backend_jaunumi:
+    build: ./sparni-shop-backend_jaunumi
+    ports:
+      - "8082:8080"
+    networks:
+      - sparni-network
+
+  sparni-shop-backend_mainpage:
+    build: ./sparni-shop-backend_mainpage
+    ports:
+      - "8080:8080"
+    networks:
+      - sparni-network
+
+  sparni-shop-backend_produkti:
+    build: ./sparni-shop-backend_produkti
+    ports:
+      - "8083:8080"
+    networks:
+      - sparni-network
+
+  sparni-shop-frontend:
+    build: ./sparni-shop-frontend
+    ports:
+      - "3000:80" 
+    networks:
+      - sparni-network
+
+networks:
+  sparni-network:
+    driver: bridge
